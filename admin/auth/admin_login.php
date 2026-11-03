@@ -12,7 +12,7 @@ function santization($data){
 if($_SERVER['REQUEST_METHOD']=="POST"){
     $email=santization($_POST['email']);
     $password=$_POST['password'];
-   $sql="select * from users_data where email=?";
+   $sql="SELECT * FROM admin WHERE email = ? AND status = 1";
    $stmt=mysqli_prepare($conn,$sql);
    if($stmt){
     mysqli_stmt_bind_param($stmt,"s",$email);
@@ -20,15 +20,22 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $result=mysqli_stmt_get_result($stmt);
     $user=mysqli_fetch_assoc($result);
     if($user&&password_verify($password,$user['password'])){
-        $_SESSION['user_id']=$user['id'];
-        $_SESSION['email']=$user['email'];
-        header("Location: ../index.php");
-        exit;
+        session_regenerate_id(true);
+
+            $_SESSION['admin_id'] = $user['admin_id'];
+            $_SESSION['admin_email'] = $user['email'];
+            $_SESSION['admin_name'] = $user['first_name'];
+
+            header("Location: ../index.php");
+            exit();
     }
     else{
         $loginerr="Invalid Email or Password";
     }
-   }
+      mysqli_stmt_close($stmt);
+   }else {
+        $loginerr = "Something went wrong. Please try again.";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -39,7 +46,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
     <title>Admin Login</title>
 
-    <link rel="stylesheet" href="admin_login.css">
+    <link rel="stylesheet" href="../assests/css/admin_login.css">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">

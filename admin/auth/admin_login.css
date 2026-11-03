@@ -1,0 +1,171 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: #f7faff;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+}
+
+/* Login Card */
+.admin-login-card {
+    width: 100%;
+    max-width: 462px;
+    min-height: 402px;
+    padding: 36px 38px 34px;
+    background: #fff;
+    border: 1px solid #e7edf5;
+    border-radius: 29px;
+    box-shadow: 0 0 3px rgba(30, 70, 120, 0.04);
+    text-align: center;
+}
+
+/* Heading */
+.admin-login-card h1 {
+    margin: 1px 0 14px;
+    font-size: 29px;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: -0.7px;
+}
+
+.admin-login-card .subtitle {
+    margin: 0 0 12px;
+    font-size: 17px;
+    line-height: 1.35;
+}
+
+.admin-login-card .subtitle strong {
+    font-weight: 700;
+}
+
+/* Form */
+.login-form {
+    width: 100%;
+}
+
+.login-error {
+    margin: 0 0 10px;
+    color: #d93025;
+    font-size: 14px;
+}
+
+/* Input Fields */
+.login-form input {
+    display: block;
+    width: 100%;
+    height: 52px;
+    margin: 0 0 14px;
+    padding: 0 18px;
+    border: 2px solid #dce9f8;
+    border-radius: 5px;
+    outline: none;
+    background: #edf5ff;
+    color: #222;
+    font: inherit;
+    font-size: 18px;
+    text-align: center;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.login-form input::placeholder {
+    color: #92979d;
+    opacity: 1;
+}
+
+.login-form input:focus {
+    border-color: #8bb8ee;
+    box-shadow: 0 0 0 3px rgba(42, 112, 207, 0.10);
+}
+
+/* Password Field */
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.password-field input {
+    padding-right: 50px;
+}
+
+/* Lock / Unlock Icon */
+.toggle-password {
+    position: absolute;
+    right: 20px;
+    top: 19px;
+    font-size: 15px;
+    color: #111;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* Login Button */
+.login-form button {
+    display: block;
+    width: 100%;
+    height: 53px;
+    margin: 0 0 23px;
+    border: 0;
+    border-radius: 5px;
+    background: #2d70cc;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    transition: background 0.2s;
+}
+
+.login-form button:hover {
+    background: #215fb4;
+}
+
+/* Forgot Password */
+.login-form a {
+    color: #3e70a9;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.login-form a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 520px) {
+    body {
+        padding: 16px;
+    }
+
+    .admin-login-card {
+        min-height: auto;
+        padding: 30px 22px;
+        border-radius: 22px;
+    }
+
+    .admin-login-card h1 {
+        font-size: 25px;
+    }
+
+    .admin-login-card .subtitle {
+        font-size: 15px;
+    }
+
+    .login-form input,
+    .login-form button {
+        font-size: 16px;
+    }
+}
